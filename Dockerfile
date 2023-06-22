@@ -23,7 +23,7 @@ RUN apk add --no-cache ca-certificates
 COPY --from=builder /go-ethereum/build/bin/geth /usr/local/bin/
 
 EXPOSE 8545 8546 30303 30303/udp
-ENTRYPOINT ["geth", "--syncmode", "light", "--http", "--http.port", "8545", "--http.addr", "0.0.0.0", "--http.corsdomain", "'*'", "--http.api", "eth,web3"]
+ENTRYPOINT ["geth", "--syncmode", "light", "--http", "--http.port", "8545", "--http.addr", "0.0.0.0", "--http.corsdomain", "'*'", "--http.api", "eth,web3","--udp"]
 
 # Add some metadata labels to help programatic image consumption
 ARG COMMIT=""
